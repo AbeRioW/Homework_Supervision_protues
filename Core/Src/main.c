@@ -95,10 +95,6 @@ int main(void)
 	OLED_Init();
 		OLED_ColorTurn(0);//
   OLED_DisplayTurn(1);//
-	OLED_ShowString(0,0,(uint8_t*)"light:2.00",16,1);
-	OLED_ShowString(0,20,(uint8_t*)"distance:30cm",16,1);
-	OLED_ShowString(0,40,(uint8_t*)"noise:1.53",16,1);
-	OLED_Refresh();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,15 +104,15 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//				HAL_ADC_Start(&hadc1);   
-//		HAL_ADC_PollForConversion(&hadc1,10); 
-//		adcx = (uint16_t)HAL_ADC_GetValue(&hadc1);  
-//		adcy = (float)adcx*3.3/4096;             
-//		sprintf(data_light,"%.3f",adcy);
-//			OLED_ShowString(0,0,(uint8_t*)data_light,16,1);
-//		OLED_Refresh();
-//		
-//		HAL_Delay(1000);
+		HAL_ADC_Start(&hadc1);   
+		HAL_ADC_PollForConversion(&hadc1,10); 
+		adcx = (uint16_t)HAL_ADC_GetValue(&hadc1);  
+		adcy = (float)adcx*3.3/4096;             
+		sprintf(data_light,"light:%.3f",adcy);
+		OLED_ShowString(0,0,(uint8_t*)data_light,16,1);
+		OLED_Refresh();
+		
+//		HAL_Delay(2000);
   }
   /* USER CODE END 3 */
 }
