@@ -1,0 +1,26 @@
+--cpu Cortex-M3
+"vvs_stm\startup_stm32f103xb.o"
+"vvs_stm\main.o"
+"vvs_stm\gpio.o"
+"vvs_stm\adc.o"
+"vvs_stm\stm32f1xx_it.o"
+"vvs_stm\stm32f1xx_hal_msp.o"
+"vvs_stm\stm32f1xx_hal_gpio_ex.o"
+"vvs_stm\stm32f1xx_hal_adc.o"
+"vvs_stm\stm32f1xx_hal_adc_ex.o"
+"vvs_stm\stm32f1xx_hal.o"
+"vvs_stm\stm32f1xx_hal_rcc.o"
+"vvs_stm\stm32f1xx_hal_rcc_ex.o"
+"vvs_stm\stm32f1xx_hal_gpio.o"
+"vvs_stm\stm32f1xx_hal_dma.o"
+"vvs_stm\stm32f1xx_hal_cortex.o"
+"vvs_stm\stm32f1xx_hal_pwr.o"
+"vvs_stm\stm32f1xx_hal_flash.o"
+"vvs_stm\stm32f1xx_hal_flash_ex.o"
+"vvs_stm\stm32f1xx_hal_exti.o"
+"vvs_stm\system_stm32f1xx.o"
+"vvs_stm\oled.o"
+--strict --scatter "vvs_stm\vvs_stm.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "vvs_stm.map" -o vvs_stm\vvs_stm.axf
