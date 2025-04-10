@@ -3,35 +3,42 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.38.0.0
-Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: 123 123, 123, LIC=X96CK-Z1IKU-UH78H-WCMNB-46UJD-7EQKS
+IDE-Version: ¦ÌVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: RIO Admin, RIO, LIC=QF8PC-7RNYD-EH28P-M9RBM-C6LJL-MBQCR
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.38.0.0
-Toolchain Path:  D:\programFiles\KEIL5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 6 (build 750)
-Assembler:       Armasm.exe V5.06 update 6 (build 750)
-Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
-Library Manager: ArmAr.exe V5.06 update 6 (build 750)
-Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
-CPU DLL:         SARMCM3.DLL V5.38.0.0
-Dialog DLL:      DCM.DLL V1.17.5.0
-Target DLL:      UL2CM3.DLL V1.164.8.0
-Dialog DLL:      TCM.DLL V1.56.4.0
+Toolchain:       MDK-ARM Standard  Version: 5.14.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      UL2CM3.DLL V1.155.0.0
+Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-C:\Users\dell\Desktop\123456\Homework_Supervision_protues\MDK-ARM\vvs_stm.uvprojx
-Project File Date:  04/07/2025
+C:\Users\Admin\Desktop\test\Homework_Supervision_protues\MDK-ARM\vvs_stm.uvprojx
+Project File Date:  04/10/2025
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\programFiles\KEIL5\ARM\ARMCC\Bin'
 *** Note: Rebuilding project, since 'Options->Output->Create Batch File' is selected.
 Rebuild target 'vvs_stm'
 assembling startup_stm32f103xb.s...
 compiling main.c...
+../Core/Src/main.c(72): warning:  #177-D: variable "adcy" was declared but never referenced
+    float adcy,adcy1;
+../Core/Src/main.c(73): warning:  #177-D: variable "adcx" was declared but never referenced
+        uint16_t adcx,adcx1 = 0;
+../Core/Src/main.c(74): warning:  #177-D: variable "data_light" was declared but never referenced
+        char data_light[4]={0},data_zaoyin[10]={0};
+../Core/Src/main.c: 3 warnings, 0 errors
 compiling gpio.c...
 compiling adc.c...
+compiling tim.c...
 compiling stm32f1xx_it.c...
 compiling stm32f1xx_hal_msp.c...
 compiling stm32f1xx_hal_gpio_ex.c...
@@ -47,35 +54,52 @@ compiling stm32f1xx_hal_pwr.c...
 compiling stm32f1xx_hal_flash.c...
 compiling stm32f1xx_hal_flash_ex.c...
 compiling stm32f1xx_hal_exti.c...
+compiling stm32f1xx_hal_tim.c...
+compiling stm32f1xx_hal_tim_ex.c...
 compiling system_stm32f1xx.c...
 compiling oled.c...
+compiling sr04.c...
+assembling startup_stm32f10x_md.s...
+compiling system_stm32f10x.c...
 linking...
-Program Size: Code=11052 RO-data=7136 RW-data=16 ZI-data=2832  
-FromELF: creating hex file...
-"vvs_stm\vvs_stm.axf" - 0 Error(s), 0 Warning(s).
+vvs_stm\vvs_stm.sct(7): error: L6235E: More than one section matches selector - cannot all be FIRST/LAST.
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 1 error messages.
+"vvs_stm\vvs_stm.axf" - 1 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
-                ARM.CMSIS.5.9.0
-                CMSIS (Common Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.6.0
+                http://www.keil.com/pack/ARM.CMSIS.4.2.0.pack
+                ARM::CMSIS:CORE:3.40.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 3.40.0
 
 Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
-                Keil.STM32F1xx_DFP.2.4.1
+                Keil::Device:Startup:1.0.0
                 STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
-  ./RTE/_vvs_stm
-  C:/Users/dell/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/dell/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+  C:\Users\Admin\Desktop\test\Homework_Supervision_protues\MDK-ARM\RTE
+  C:\Users\Admin\Desktop\test\Homework_Supervision_protues\MDK-ARM\RTE\Device\STM32F103C8
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.1
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.1\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.6.0
-Build Time Elapsed:  00:00:16
+   * Component: ARM::CMSIS:CORE:3.40.0
+      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+Target not created.
 </pre>
 </body>
 </html>

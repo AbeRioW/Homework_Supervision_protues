@@ -3,6 +3,7 @@
 "vvs_stm\main.o"
 "vvs_stm\gpio.o"
 "vvs_stm\adc.o"
+"vvs_stm\tim.o"
 "vvs_stm\stm32f1xx_it.o"
 "vvs_stm\stm32f1xx_hal_msp.o"
 "vvs_stm\stm32f1xx_hal_gpio_ex.o"
@@ -18,9 +19,14 @@
 "vvs_stm\stm32f1xx_hal_flash.o"
 "vvs_stm\stm32f1xx_hal_flash_ex.o"
 "vvs_stm\stm32f1xx_hal_exti.o"
+"vvs_stm\stm32f1xx_hal_tim.o"
+"vvs_stm\stm32f1xx_hal_tim_ex.o"
 "vvs_stm\system_stm32f1xx.o"
 "vvs_stm\oled.o"
+"vvs_stm\sr04.o"
+"vvs_stm\startup_stm32f10x_md.o"
+"vvs_stm\system_stm32f10x.o"
 --strict --scatter "vvs_stm\vvs_stm.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "vvs_stm.map" -o vvs_stm\vvs_stm.axf

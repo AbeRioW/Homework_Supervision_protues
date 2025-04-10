@@ -19,12 +19,14 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "oled.h"
 #include "stdio.h"
+#include "sr04.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,9 +69,9 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  float adcy;
-	uint16_t adcx = 0;
-	char data_light[4]={0};
+  float adcy,adcy1;
+	uint16_t adcx,adcx1 = 0;
+	char data_light[4]={0},data_zaoyin[10]={0};
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -91,6 +93,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
+  MX_TIM2_Init();
+  MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
 	OLED_Init();
 		OLED_ColorTurn(0);//
@@ -104,14 +108,24 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		HAL_ADC_Start(&hadc1);   
-		HAL_ADC_PollForConversion(&hadc1,10); 
-		adcx = (uint16_t)HAL_ADC_GetValue(&hadc1);  
-		adcy = (float)adcx*3.3/4096;             
-		sprintf(data_light,"light:%.3f",adcy);
-		OLED_ShowString(0,0,(uint8_t*)data_light,16,1);
+//		HAL_ADC_Start(&hadc1);   
+//		HAL_ADC_PollForConversion(&hadc1,10); 
+//		adcx = (uint16_t)HAL_ADC_GetValue(&hadc1);  
+//		adcy = (float)adcx*3.3/4096;             
+//		sprintf(data_light,"light:%.3f",adcy);
+//		OLED_ShowString(0,0,(uint8_t*)data_light,16,1);
+//		OLED_Refresh();
+//		
+//		
+//				sr04_getdata();
+//		
+			HAL_ADC_Start(&hadc2);   
+		HAL_ADC_PollForConversion(&hadc2,10); 
+		adcx1 = (uint16_t)HAL_ADC_GetValue(&hadc2);  
+		adcy1 = (float)adcx1*3.3/4096;             
+		sprintf(data_zaoyin,"noise:%.3f",adcy1);
+		OLED_ShowString(0,40,(uint8_t*)data_zaoyin,16,1);
 		OLED_Refresh();
-		
 //		HAL_Delay(2000);
   }
   /* USER CODE END 3 */
