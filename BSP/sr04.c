@@ -1,5 +1,6 @@
 #include "sr04.h"
 #include "oled.h"
+#include "usart.h"
 
 
 
@@ -9,7 +10,7 @@ uint8_t measure_cnt = 0;  				  //状态标志位
 uint32_t higt_time;                 //超声波模块返回高电平时间
 
 
-uint8_t distance_legth = 5;  //默认的距离值
+uint8_t distance_legth = 80;  //默认的距离值
 bool distance_boundary = false;
 
 //us延时函数
@@ -39,13 +40,14 @@ void sr04_getdata(void)
 			  
 			   distant = (higt_time*0.034)/2;                	//单位是cm
 			
-			sprintf(long_dis,"distance:%.2f",distant);
-			   OLED_ShowString(0,20,(uint8_t*)long_dis,16,1);  //调试时可打卡液晶显示
+			sprintf(long_dis,"dist:%.2f",distant);
+			   OLED_ShowString(0,40,(uint8_t*)long_dis,16,1);  //调试时可打卡液晶显示
 			   OLED_Refresh(); 
 			
 			  if(distant <=distance_legth) 
 				{
-						distance_boundary = true;
+						//distance_boundary = true;
+					HAL_UART_Transmit(&huart1,(uint8_t*)"too close",8,0xffff);
 				}
 			  measure_cnt = 0;
 			  TIM2->CNT = 0;                //情况计时器技术

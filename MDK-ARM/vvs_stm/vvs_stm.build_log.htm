@@ -21,24 +21,23 @@ Target DLL:      UL2CM3.DLL V1.155.0.0
 Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-C:\Users\Admin\Desktop\test\Homework_Supervision_protues\MDK-ARM\vvs_stm.uvprojx
-Project File Date:  04/10/2025
+C:\Users\Admin\Desktop\git\Homework_Supervision_protues\MDK-ARM\vvs_stm.uvprojx
+Project File Date:  04/11/2025
 
 <h2>Output:</h2>
 *** Note: Rebuilding project, since 'Options->Output->Create Batch File' is selected.
 Rebuild target 'vvs_stm'
 assembling startup_stm32f103xb.s...
 compiling main.c...
-../Core/Src/main.c(72): warning:  #177-D: variable "adcy" was declared but never referenced
-    float adcy,adcy1;
-../Core/Src/main.c(73): warning:  #177-D: variable "adcx" was declared but never referenced
-        uint16_t adcx,adcx1 = 0;
-../Core/Src/main.c(74): warning:  #177-D: variable "data_light" was declared but never referenced
+../Core/Src/main.c(75): warning:  #177-D: variable "data_zaoyin" was declared but never referenced
         char data_light[4]={0},data_zaoyin[10]={0};
-../Core/Src/main.c: 3 warnings, 0 errors
+../Core/Src/main.c(76): warning:  #177-D: variable "test_uart" was declared but never referenced
+        uint8_t test_uart[5]={0x11,0x22,0x33,0x44,0x55};
+../Core/Src/main.c: 2 warnings, 0 errors
 compiling gpio.c...
 compiling adc.c...
 compiling tim.c...
+compiling usart.c...
 compiling stm32f1xx_it.c...
 compiling stm32f1xx_hal_msp.c...
 compiling stm32f1xx_hal_gpio_ex.c...
@@ -56,17 +55,14 @@ compiling stm32f1xx_hal_flash_ex.c...
 compiling stm32f1xx_hal_exti.c...
 compiling stm32f1xx_hal_tim.c...
 compiling stm32f1xx_hal_tim_ex.c...
+compiling stm32f1xx_hal_uart.c...
 compiling system_stm32f1xx.c...
 compiling oled.c...
 compiling sr04.c...
-assembling startup_stm32f10x_md.s...
-compiling system_stm32f10x.c...
 linking...
-vvs_stm\vvs_stm.sct(7): error: L6235E: More than one section matches selector - cannot all be FIRST/LAST.
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-"vvs_stm\vvs_stm.axf" - 1 Error(s), 3 Warning(s).
+Program Size: Code=15208 RO-data=7136 RW-data=28 ZI-data=2988  
+FromELF: creating hex file...
+"vvs_stm\vvs_stm.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -83,11 +79,9 @@ Package Vendor: Keil
    * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Admin\Desktop\test\Homework_Supervision_protues\MDK-ARM\RTE
-  C:\Users\Admin\Desktop\test\Homework_Supervision_protues\MDK-ARM\RTE\Device\STM32F103C8
+  C:\Users\Admin\Desktop\git\Homework_Supervision_protues\MDK-ARM\RTE
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include
   C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.1
-  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.1\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -96,10 +90,9 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\system_stm32f10x.c
       Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\system_stm32f10x.c
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-Target not created.
 </pre>
 </body>
 </html>

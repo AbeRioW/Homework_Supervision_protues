@@ -28,3 +28,4 @@ vvs_stm\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ha
 vvs_stm\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 vvs_stm\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 vvs_stm\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+vvs_stm\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

@@ -20,6 +20,7 @@
 #include "main.h"
 #include "adc.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -72,6 +73,7 @@ int main(void)
   float adcy,adcy1;
 	uint16_t adcx,adcx1 = 0;
 	char data_light[4]={0},data_zaoyin[10]={0};
+	uint8_t test_uart[5]={0x11,0x22,0x33,0x44,0x55};
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -94,11 +96,12 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC1_Init();
   MX_TIM2_Init();
-  MX_ADC2_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 	OLED_Init();
 		OLED_ColorTurn(0);//
   OLED_DisplayTurn(1);//
+	HAL_ADCEx_Calibration_Start(&hadc1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,25 +111,36 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//		HAL_ADC_Start(&hadc1);   
-//		HAL_ADC_PollForConversion(&hadc1,10); 
-//		adcx = (uint16_t)HAL_ADC_GetValue(&hadc1);  
-//		adcy = (float)adcx*3.3/4096;             
-//		sprintf(data_light,"light:%.3f",adcy);
-//		OLED_ShowString(0,0,(uint8_t*)data_light,16,1);
-//		OLED_Refresh();
-//		
-//		
-//				sr04_getdata();
-//		
-			HAL_ADC_Start(&hadc2);   
-		HAL_ADC_PollForConversion(&hadc2,10); 
-		adcx1 = (uint16_t)HAL_ADC_GetValue(&hadc2);  
-		adcy1 = (float)adcx1*3.3/4096;             
-		sprintf(data_zaoyin,"noise:%.3f",adcy1);
-		OLED_ShowString(0,40,(uint8_t*)data_zaoyin,16,1);
+		HAL_ADC_Start(&hadc1);   
+		HAL_ADC_PollForConversion(&hadc1,10); 
+		adcx = (uint16_t)HAL_ADC_GetValue(&hadc1);  
+		adcy = (float)adcx*3.3/4096;             
+		sprintf(data_light,"light:%.3f",adcy);
+		OLED_ShowString(0,0,(uint8_t*)data_light,16,1);
 		OLED_Refresh();
-//		HAL_Delay(2000);
+		
+		if(adcy>2.0)
+		{
+				HAL_UART_Transmit(&huart1,(uint8_t*)"too dark",8,0xffff);
+		}
+		
+				HAL_ADC_Start(&hadc1);   
+		HAL_ADC_PollForConversion(&hadc1,10); 
+		adcx1 = (uint16_t)HAL_ADC_GetValue(&hadc1);  
+		adcy1 = (float)adcx1*3.3/4096;             
+		sprintf(data_light,"noise:%.3f",adcy1);
+		OLED_ShowString(0,20,(uint8_t*)data_light,16,1);
+		OLED_Refresh();
+		
+		if(adcy>2.0)
+		{
+				HAL_UART_Transmit(&huart1,(uint8_t*)"too noise",8,0xffff);
+		}
+		
+		
+				sr04_getdata();
+		
+		HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }

@@ -31,7 +31,9 @@ vvs_stm\sr04.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 vvs_stm\sr04.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 vvs_stm\sr04.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 vvs_stm\sr04.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+vvs_stm\sr04.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 vvs_stm\sr04.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 vvs_stm\sr04.o: ../Core/Inc/gpio.h
 vvs_stm\sr04.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 vvs_stm\sr04.o: ..\BSP\oled.h
+vvs_stm\sr04.o: ../Core/Inc/usart.h

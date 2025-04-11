@@ -1,8 +1,6 @@
 --c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../BSP
--I C:\Users\Admin\Desktop\test\Homework_Supervision_protues\MDK-ARM\RTE
--I C:\Users\Admin\Desktop\test\Homework_Supervision_protues\MDK-ARM\RTE\Device\STM32F103C8
+-I C:\Users\Admin\Desktop\git\Homework_Supervision_protues\MDK-ARM\RTE
 -I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include
 -I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.1
--I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.1\Device\Include
 -D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB
 -o vvs_stm\adc.o --omf_browse vvs_stm\adc.crf --depend vvs_stm\adc.d "../Core/Src/adc.c"
